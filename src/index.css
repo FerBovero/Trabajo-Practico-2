@@ -1,0 +1,13 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #000000 0%, #232323 100%);
+  background-attachment: fixed;
+  color: #333;
+}
+
+* {
+  box-sizing: border-box;
+}
