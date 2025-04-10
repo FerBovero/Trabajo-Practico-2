@@ -1,12 +1,20 @@
 export default function evaluatePasswordStrength(password) {
-  let score = 0;
-  if (password.length >= 8) score++;
-  if (/[a-z]/.test(password)) score++;
-  if (/[A-Z]/.test(password)) score++;
-  if (/\d/.test(password)) score++;
-  if (/[^A-Za-z0-9]/.test(password)) score++;
+  const hasMinLength = password.length >= 8;
+  const hasLowercase = /[a-z]/.test(password);
+  const hasUppercase = /[A-Z]/.test(password);
+  const hasNumber = /\d/.test(password);
+  const hasSpecialChar = /[^A-Za-z0-9]/.test(password);
 
-  if (score >= 4) return "Muy segura";
-  if (score >= 3) return "Segura";
+  if (!hasMinLength) return "Poco segura";
+
+  let score = 0;
+  if (hasLowercase) score++;
+  if (hasUppercase) score++;
+  if (hasNumber) score++;
+  if (hasSpecialChar) score++;
+
+  if (score >= 3) return "Muy segura";
+  if (score >= 2) return "Segura";
   return "Poco segura";
 }
+
